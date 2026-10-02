@@ -104,4 +104,3 @@ Los errores responden `{"error": "mensaje", "campo": "nombre_del_campo"}`. Sin s
 
 - **Usa una contraseña larga.** Una palabra corta o un nombre se adivina rápido aunque haya bloqueo por intentos.
 - Vercel sirve todo por HTTPS, y la cookie de sesión se marca `Secure` allí.
-# platitos
