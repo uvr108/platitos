@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Platitos | Alimento para perros y gatos</title>
+  <meta name="description" content="Alimento seco, húmedo y natural, premios y suplementos para perros y gatos, ordenados por edad.">
+  <link rel="icon" href="/img/icono.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+  <link rel="stylesheet" href="/css/estilos.css">
+  <script type="module" src="/js/catalogo.js"></script>
+</head>
+<body>
+  <header class="portada">
+    <div class="contenedor portada__barra">
+      <a class="marca" href="/">
+        <svg viewBox="0 0 40 30" width="36" height="27" aria-hidden="true">
+          <path d="M9 12 Q20 1 31 12 Z" fill="#E6A23C"/>
+          <path d="M3 13 H37 Q35 28 20 28 Q5 28 3 13 Z" fill="currentColor"/>
+          <rect x="1" y="10.5" width="38" height="5" rx="2.5" fill="currentColor"/>
+        </svg>
+        Platitos
+      </a>
+      <a href="#catalogo">Ver catálogo</a>
+    </div>
+
+    <div class="contenedor portada__cuerpo">
+      <p class="portada__intro">Alimento, premios y suplementos para perros y gatos, ordenados por edad. Cambia las palabras subrayadas y el catálogo se ajusta.</p>
+
+      <form class="frase" id="filtros" role="search" aria-label="Filtrar el catálogo">
+        <span class="frase__linea">
+          <span>Busco</span>
+          <label class="sr-only" for="f-tipo">Tipo de producto</label>
+          <select class="frase__opcion" id="f-tipo" name="tipo">
+            <option value="todo">de todo</option>
+            <option value="seco">alimento seco</option>
+            <option value="humedo">alimento húmedo</option>
+            <option value="natural">comida natural</option>
+            <option value="snack">snacks y premios</option>
+            <option value="suplemento">suplementos</option>
+          </select>
+        </span>
+        <span class="frase__linea">
+          <span>para</span>
+          <label class="sr-only" for="f-mascota">Mascota</label>
+          <select class="frase__opcion" id="f-mascota" name="mascota">
+            <option value="todas">perros y gatos</option>
+            <option value="perro">perros</option>
+            <option value="gato">gatos</option>
+          </select>
+        </span>
+        <span class="frase__linea">
+          <label class="sr-only" for="f-etapa">Edad</label>
+          <span>
+            <select class="frase__opcion" id="f-etapa" name="etapa">
+              <option value="todas">de cualquier edad</option>
+              <option value="cachorro">en crecimiento</option>
+              <option value="adulto">adultos</option>
+              <option value="senior">senior</option>
+            </select><span aria-hidden="true">.</span>
+          </span>
+        </span>
+      </form>
+
+      <p class="portada__resultado">
+        <span id="conteo" aria-live="polite">Cargando productos…</span>
+        <button type="button" class="boton" id="limpiar" hidden>Ver todo el catálogo</button>
+      </p>
+    </div>
+  </header>
+
+  <main class="contenedor catalogo" id="catalogo" tabindex="-1">
+    <h2 class="sr-only">Catálogo</h2>
+    <div id="grupos"></div>
+  </main>
+
+  <footer class="contenedor pie">
+    <span class="marca">Platitos</span>
+    <p class="pie__texto">Alimento para perros y gatos. Los precios incluyen IVA.</p>
+    <a href="/admin">Administrar productos</a>
+  </footer>
+</body>
+</html>

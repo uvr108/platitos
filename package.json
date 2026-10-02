@@ -1,0 +1,19 @@
+{
+  "name": "platitos",
+  "version": "1.0.0",
+  "description": "Tienda de alimento para perros y gatos: catálogo público y panel de administración.",
+  "private": true,
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.18.0",
+    "@vercel/blob": "^2.8.0"
+  }
+}

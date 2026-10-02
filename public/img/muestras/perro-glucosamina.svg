@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+<defs><clipPath id="cuerpo"><rect x="120" y="124" width="160" height="228" rx="36"/></clipPath></defs>
+<ellipse cx="200" cy="362" rx="116" ry="11" fill="#1b2340" opacity=".10"/>
+<rect x="160" y="108" width="80" height="22" fill="#E1E6EE"/>
+<rect x="150" y="60" width="100" height="56" rx="10" fill="#1a3278"/>
+<rect x="164" y="70" width="4" height="38" rx="2" fill="#fff" opacity=".18"/><rect x="176" y="70" width="4" height="38" rx="2" fill="#fff" opacity=".18"/><rect x="188" y="70" width="4" height="38" rx="2" fill="#fff" opacity=".18"/><rect x="200" y="70" width="4" height="38" rx="2" fill="#fff" opacity=".18"/><rect x="212" y="70" width="4" height="38" rx="2" fill="#fff" opacity=".18"/><rect x="224" y="70" width="4" height="38" rx="2" fill="#fff" opacity=".18"/><rect x="236" y="70" width="4" height="38" rx="2" fill="#fff" opacity=".18"/>
+<rect x="120" y="124" width="160" height="228" rx="36" fill="#F5F7FB" stroke="#D5DBE6" stroke-width="3"/>
+<g clip-path="url(#cuerpo)"><rect x="110" y="176" width="180" height="132" fill="#2446A6"/><rect x="250" y="120" width="40" height="240" fill="#000" opacity=".05"/></g>
+<rect x="136" y="140" width="12" height="190" rx="6" fill="#fff" opacity=".6"/>
+<circle cx="200" cy="226" r="32" fill="#fff"/>
+<rect x="194" y="208" width="12" height="36" rx="3" fill="#2446A6"/><rect x="182" y="220" width="36" height="12" rx="3" fill="#2446A6"/>
+<rect x="158" y="272" width="84" height="10" rx="5" fill="#fff"/>
+<rect x="174" y="290" width="52" height="7" rx="3.5" fill="#fff" opacity=".65"/>
+<g transform="translate(306 336) rotate(-18)"><rect x="-24" y="-10" width="48" height="20" rx="10" fill="#fff" stroke="#D5DBE6" stroke-width="2"/><path d="M0 -10 H14 A10 10 0 0 1 14 10 H0 Z" fill="#E6A23C"/></g><g transform="translate(98 342) rotate(14)"><rect x="-24" y="-10" width="48" height="20" rx="10" fill="#fff" stroke="#D5DBE6" stroke-width="2"/><path d="M0 -10 H14 A10 10 0 0 1 14 10 H0 Z" fill="#E6A23C"/></g>
+</svg>

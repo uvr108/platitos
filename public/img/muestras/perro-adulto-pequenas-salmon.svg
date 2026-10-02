@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+<defs><clipPath id="cuerpo"><path d="M120 82 L280 82 Q298 212 296 334 Q296 352 278 352 L122 352 Q104 352 104 334 Q102 212 120 82 Z"/></clipPath><clipPath id="ventana"><circle cx="200" cy="222" r="56"/></clipPath></defs>
+<ellipse cx="200" cy="362" rx="116" ry="11" fill="#1b2340" opacity=".10"/>
+<path d="M120 82 L280 82 Q298 212 296 334 Q296 352 278 352 L122 352 Q104 352 104 334 Q102 212 120 82 Z" fill="#2C8C99"/>
+<g clip-path="url(#cuerpo)">
+<rect x="258" y="60" width="60" height="300" fill="#20656e" opacity=".35"/>
+<rect x="96" y="96" width="14" height="250" fill="#fff" opacity=".12"/>
+<rect x="96" y="298" width="210" height="22" fill="#F08A5D"/>
+</g>
+<path d="M116 86 L116 58 L122 50 L128 58 L134 50 L140 58 L146 50 L152 58 L158 50 L164 58 L170 50 L176 58 L182 50 L188 58 L194 50 L200 58 L206 50 L212 58 L218 50 L224 58 L230 50 L236 58 L242 50 L248 58 L254 50 L260 58 L266 50 L272 58 L278 50 L284 58 L284 86 Z" fill="#20656e"/>
+<path d="M120 68 H280 M120 77 H280" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>
+<rect x="146" y="106" width="108" height="14" rx="7" fill="#fff"/><rect x="168" y="128" width="65" height="8" rx="4" fill="#fff" opacity=".65"/>
+<circle cx="200" cy="222" r="64" fill="#20656e" opacity=".45"/>
+<circle cx="200" cy="222" r="56" fill="#FFF7EA"/>
+<g clip-path="url(#ventana)"><g transform="translate(202.3 253.9)"><circle r="8.8" fill="#8E5728"/><circle r="2.6" fill="#633d1c"/></g><g transform="translate(166.2 243.3)"><circle r="8.8" fill="#8E5728"/><circle r="2.6" fill="#633d1c"/></g><g transform="translate(159.5 172.8)"><circle r="8.8" fill="#B97A3A"/><circle r="2.6" fill="#825529"/></g><g transform="translate(174.2 222.2)"><circle r="8.8" fill="#B97A3A"/><circle r="2.6" fill="#825529"/></g><g transform="translate(168.4 261.8)"><circle r="8.8" fill="#C4863F"/><circle r="2.6" fill="#895e2c"/></g><g transform="translate(182.4 182.8)"><circle r="8.8" fill="#A86B32"/><circle r="2.6" fill="#764b23"/></g><g transform="translate(245.7 219.3)"><circle r="8.8" fill="#C4863F"/><circle r="2.6" fill="#895e2c"/></g><g transform="translate(219.0 212.5)"><circle r="8.8" fill="#8E5728"/><circle r="2.6" fill="#633d1c"/></g><g transform="translate(149.9 208.7)"><circle r="8.8" fill="#8E5728"/><circle r="2.6" fill="#633d1c"/></g></g>
+<circle cx="260" cy="309" r="21" fill="#fff"/><circle cx="260" cy="309" r="13" fill="#F08A5D"/>
+</svg>

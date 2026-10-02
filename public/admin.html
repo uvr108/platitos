@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administrar productos | Platitos</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/icono.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+  <link rel="stylesheet" href="/css/estilos.css">
+  <script type="module" src="/js/admin.js"></script>
+</head>
+<body>
+  <header class="barra-admin">
+    <div class="contenedor barra-admin__fila">
+      <a class="marca" href="/">
+        <svg viewBox="0 0 40 30" width="30" height="23" aria-hidden="true">
+          <path d="M9 12 Q20 1 31 12 Z" fill="#E6A23C"/>
+          <path d="M3 13 H37 Q35 28 20 28 Q5 28 3 13 Z" fill="currentColor"/>
+          <rect x="1" y="10.5" width="38" height="5" rx="2.5" fill="currentColor"/>
+        </svg>
+        Platitos
+      </a>
+      <span class="barra-admin__seccion">Administración</span>
+      <a class="barra-admin__enlace" href="/">Ver tienda</a>
+      <button type="button" class="barra-admin__salir" id="salir" hidden>Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="contenedor acceso" id="acceso" hidden>
+    <form class="acceso__form" id="form-acceso" novalidate>
+      <h1 class="acceso__titulo">Administración</h1>
+      <p class="acceso__texto" id="acceso-texto">Ingresa la contraseña para subir y modificar productos.</p>
+      <input type="text" name="usuario" autocomplete="username" value="admin" hidden>
+      <div class="campo">
+        <label class="campo__etiqueta" for="clave">Contraseña</label>
+        <input id="clave" name="clave" type="password" autocomplete="current-password" aria-describedby="error-clave">
+        <p class="campo__error" id="error-clave" role="alert"></p>
+      </div>
+      <button type="submit" class="boton boton--primario" id="ingresar">Ingresar</button>
+    </form>
+  </main>
+
+  <main class="contenedor admin" id="panel" hidden>
+    <div class="admin__cabecera">
+      <h1>Productos</h1>
+      <button type="button" class="boton boton--primario" id="nuevo">Subir producto</button>
+    </div>
+
+    <div class="admin__herramientas">
+      <div class="filtro-estado" role="group" aria-label="Mostrar productos">
+        <button type="button" data-estado="todos" aria-pressed="true">Todos<span id="n-todos"></span></button>
+        <button type="button" data-estado="activos" aria-pressed="false">En la tienda<span id="n-activos"></span></button>
+        <button type="button" data-estado="pausados" aria-pressed="false">Pausados<span id="n-pausados"></span></button>
+      </div>
+      <label class="sr-only" for="buscar">Buscar por nombre</label>
+      <input class="buscador" type="search" id="buscar" placeholder="Buscar por nombre" autocomplete="off">
+    </div>
+
+    <ul class="lista" id="lista" aria-live="polite"></ul>
+  </main>
+
+  <dialog id="dialogo-producto" aria-labelledby="titulo-producto">
+    <form class="dialogo__contenido" id="form-producto" novalidate>
+      <h2 class="dialogo__titulo" id="titulo-producto">Subir producto</h2>
+
+      <div class="form__cuerpo">
+        <div class="campo">
+          <span class="campo__etiqueta" id="etq-foto">Foto</span>
+          <label class="zona-foto" id="zona-foto">
+            <input class="sr-only" type="file" id="foto" accept="image/jpeg,image/png,image/webp" aria-labelledby="etq-foto" aria-describedby="error-foto ayuda-foto">
+            <img id="vista-foto" alt="" hidden>
+            <span class="zona-foto__texto" id="ayuda-foto"><strong>Elige una foto</strong>o arrástrala aquí. JPG, PNG o WebP. Se ve mejor con fondo blanco.</span>
+            <span class="zona-foto__cambiar" id="cambiar-foto" hidden>Cambiar foto</span>
+          </label>
+          <p class="campo__error" id="error-foto"></p>
+        </div>
+
+        <div class="form__campos">
+          <div class="campo">
+            <label class="campo__etiqueta" for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" maxlength="80" autocomplete="off" aria-describedby="error-nombre">
+            <p class="campo__error" id="error-nombre"></p>
+          </div>
+
+          <div class="campo">
+            <div class="campo__fila">
+              <label class="campo__etiqueta" for="descripcion">Descripción breve</label>
+              <span class="contador" id="contador-descripcion" aria-hidden="true">0/160</span>
+            </div>
+            <textarea id="descripcion" name="descripcion" maxlength="160" rows="3" aria-describedby="error-descripcion"></textarea>
+            <p class="campo__error" id="error-descripcion"></p>
+          </div>
+
+          <div class="form__par">
+            <div class="campo">
+              <label class="campo__etiqueta" for="precio">Precio</label>
+              <input id="precio" name="precio" type="number" inputmode="numeric" min="1" step="1" aria-describedby="error-precio">
+              <p class="campo__error" id="error-precio"></p>
+            </div>
+            <div class="campo">
+              <label class="campo__etiqueta" for="presentacion">Presentación <span class="campo__ayuda">(opcional)</span></label>
+              <input id="presentacion" name="presentacion" maxlength="30" placeholder="Bolsa de 3 kg" aria-describedby="error-presentacion">
+              <p class="campo__error" id="error-presentacion"></p>
+            </div>
+          </div>
+
+          <fieldset class="campo">
+            <legend class="campo__etiqueta">Mascota</legend>
+            <div class="segmentos" id="segmentos-mascota" aria-describedby="error-mascota">
+              <label><input type="radio" name="mascota" value="perro"><span>Perro</span></label>
+              <label><input type="radio" name="mascota" value="gato"><span>Gato</span></label>
+              <label><input type="radio" name="mascota" value="ambos"><span>Perro y gato</span></label>
+            </div>
+            <p class="campo__error" id="error-mascota"></p>
+          </fieldset>
+
+          <div class="form__par">
+            <div class="campo">
+              <label class="campo__etiqueta" for="etapa">Etapa de vida</label>
+              <select id="etapa" name="etapa" aria-describedby="error-etapa">
+                <option value="" disabled selected>Elige una</option>
+                <option value="cachorro">Cachorro o gatito</option>
+                <option value="adulto">Adulto</option>
+                <option value="senior">Senior</option>
+                <option value="todas">Todas las etapas</option>
+              </select>
+              <p class="campo__error" id="error-etapa"></p>
+            </div>
+            <div class="campo">
+              <label class="campo__etiqueta" for="categoria">Tipo de producto</label>
+              <select id="categoria" name="categoria" aria-describedby="error-categoria">
+                <option value="" disabled selected>Elige uno</option>
+                <option value="seco">Alimento seco</option>
+                <option value="humedo">Alimento húmedo</option>
+                <option value="natural">Comida natural</option>
+                <option value="snack">Snacks y premios</option>
+                <option value="suplemento">Suplemento alimenticio</option>
+              </select>
+              <p class="campo__error" id="error-categoria"></p>
+            </div>
+          </div>
+
+          <label class="casilla">
+            <input type="checkbox" id="activo" name="activo" checked>
+            <span>Mostrar en la tienda<small>Si lo desmarcas, el producto queda pausado.</small></span>
+          </label>
+        </div>
+      </div>
+
+      <p class="form__error" id="error-form" role="alert"></p>
+
+      <div class="form__acciones">
+        <button type="button" class="boton" data-cerrar>Cancelar</button>
+        <button type="submit" class="boton boton--primario" id="guardar">Subir producto</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="dialogo--chico" id="dialogo-eliminar" aria-labelledby="titulo-eliminar">
+    <div class="dialogo__contenido">
+      <h2 class="dialogo__titulo" id="titulo-eliminar">¿Eliminar este producto?</h2>
+      <p>Se borra de la tienda y de esta lista, junto con su foto. No se puede deshacer. Si solo quieres ocultarlo por un tiempo, usa «Pausar».</p>
+      <p class="form__error" id="error-eliminar" role="alert"></p>
+      <div class="form__acciones">
+        <button type="button" class="boton" data-cerrar>Cancelar</button>
+        <button type="button" class="boton boton--peligro" id="confirmar-eliminar">Eliminar producto</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+</body>
+</html>

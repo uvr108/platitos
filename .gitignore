@@ -1,0 +1,7 @@
+data/
+uploads/
+node_modules/
+.env
+.env*.local
+.vercel/
+.claude/
